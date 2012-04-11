@@ -1,0 +1,24 @@
+settings =
+{
+	orientation =
+	{
+		default = "landscapeRight",
+
+		supported =
+		{
+			"landscapeRight", "landscapeLeft"
+		},
+	},
+
+	iphone =
+	{
+		plist =
+		{
+			CFBundleDisplayName = "PvZ Template",
+			CFBundleIconFile = "Icon.png",
+			CFBundleIconFiles = {"Icon.png", "Icon@2x.png", "Icon-72.png", "Small-Icon-50.png", "Icon-Small.png", "Icon-Small@2x.png"},			
+			UIStatusBarHidden=true,
+			UIPrerenderedIcon=true
+		},
+	}
+}
