@@ -1,7 +1,7 @@
 module(..., package.seeall)
 
-function new() 
-	
+function new()
+
 	-------------------------
 	-- Requires
 	-------------------------
@@ -15,15 +15,15 @@ function new()
 
 	-- Actual time
 	local gameTime = 0
-	
+
 	-- Time for the first zombie
-	local startTime = 10000
-	
+	local startTime = _G.startTime
+
 	-- Time to stop creating zombies
 	local endTime = 180000
-	
+
 	-- Time to create another zombie
-	local zombieTime = 10000
+	local zombieTime = _G.zombieTime
 
 
 	-------------------------
@@ -40,7 +40,7 @@ function new()
 	-------------------------
 	-- Game Functions
 	-------------------------
-	
+
 	local destroyEverything = function()
 		Runtime:removeEventListener("enterFrame", refreshGame)
 		cancelAllTimers()
@@ -54,23 +54,23 @@ function new()
 		gameGroup = nil
 	end
 
-	
+
 	-------------------------
 	-- Game Loop
 	-------------------------
-	
+
 	local refreshGame = function()
 		gameTime = system.getTimer()
-		levelMgr.refresh(gameTime)		
+		levelMgr.refresh(gameTime)
 	end
-	
+
 	Runtime:addEventListener("enterFrame", refreshGame)
-	
-	
+
+
 	-------------------------
 	-- Mandatory Return
-	-------------------------	
+	-------------------------
 
 	return gameGroup
-	
+
 end

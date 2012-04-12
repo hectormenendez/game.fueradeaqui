@@ -20,6 +20,13 @@ io.output():setvbuf("no")
 -------------------------
 -- Global Variables
 -------------------------
+-- Tiempo de espera para  el primer zombies
+_G.startTime = 1000
+
+-- Intervalo entr zombies
+_G.zombieTime = 6000
+
+_G.shotVelocity = 90
 
 -- Globals to set screen size
 _G.W = display.contentWidth
@@ -38,7 +45,7 @@ _G.STOPGAME = false
 _G.DESTROYSHOTS = false
 
 -- Global to access sun collected from everywhere
-_G.SUN = 3
+_G.SUN = 100
 
 
 -------------------------
@@ -48,7 +55,7 @@ _G.SUN = 3
 local handleLowMemory = function( event )
 	print("OS memory warning received!")
 end
- 
+
 Runtime:addEventListener("memoryWarning", handleLowMemory)
 
 
@@ -111,6 +118,10 @@ end
 -------------------------
 
 local mainGroup = display.newGroup()
+
+--local backgroundMusic = audio.loadStream("image/background.mp3")
+--local backgroundMusicChannel = audio.play( backgroundMusic, { channel=1, loops=-1, fadein=50 }
+
 
 local main = function()
 	math.randomseed(os.time())
