@@ -2,8 +2,6 @@
 -- Requires
 -------------------------
 
-require "sprite"
-require "retinaSupport"
 physics = require "physics"
 director = require "director"
 
